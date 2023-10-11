@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 
 public class EmployeeList {
-    static ArrayList<Employee> employeeArrayList = new ArrayList<>();
-    static int totalEmployees = 0;
+    public ArrayList<Employee> getEmployeeArrayList() {
+        return employeeArrayList;
+    }
+
+    private ArrayList<Employee> employeeArrayList = new ArrayList<>();
+
     public void addEmployeeToList(Employee employee){
         employeeArrayList.add(employee);
-        totalEmployees++;
     }
 
 

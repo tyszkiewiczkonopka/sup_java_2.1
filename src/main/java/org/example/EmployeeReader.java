@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class EmployeeReader {
 
-    public static String readFirstName() {
+    public String readFirstName() {
         Scanner scanner = new Scanner(System.in);
         String firstName = "";
 
         while (firstName.isEmpty()) {
             System.out.print("Enter the FIRST NAME of the new employee: ");
-            firstName = scanner.nextLine();
+            firstName = scanner.nextLine().trim();
             if (firstName.isEmpty()) {
                 System.out.println("FIRST NAME cannot be empty. Please try again.");
             }
@@ -18,13 +18,13 @@ public class EmployeeReader {
         return firstName;
     }
 
-    public static String readLastName() {
+    public String readLastName() {
         Scanner scanner = new Scanner(System.in);
         String lastName = "";
 
         while (lastName.isEmpty()) {
             System.out.print("Enter the LAST NAME of the new employee: ");
-            lastName = scanner.nextLine();
+            lastName = scanner.nextLine().trim();
             if (lastName.isEmpty()) {
                 System.out.println("LAST NAME cannot be empty. Please try again.");
             }
@@ -32,7 +32,7 @@ public class EmployeeReader {
         return lastName;
     }
 
-    public static int readSalary() {
+    public int readSalary() {
         Scanner scanner = new Scanner(System.in);
         int salary = -1;
 

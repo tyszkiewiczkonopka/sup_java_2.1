@@ -2,11 +2,23 @@ package org.example;
 
 import java.util.Scanner;
 
-import static org.example.EmployeeList.employeeArrayList;
+public class EmployeeManager {
+    private EmployeeList employeeList;
+    private EmployeeReader employeeReader;
+    private static final int INITIAL_EMPLOYEE_NUMBER = 5;
 
-public class Actions {
+    public EmployeeManager() {
+        this.employeeList = new EmployeeList();
+        this.employeeReader = new EmployeeReader();
+    }
 
-    public static void performAction() {
+    public void initializeEmployees() {
+        for (int i = 0; i < INITIAL_EMPLOYEE_NUMBER; i++) {
+         createNewEmployee();
+        }
+    }
+
+    public void showMenu() {
 
         Scanner scanner = new Scanner(System.in);
         int action;
@@ -32,21 +44,22 @@ public class Actions {
         } while (action != 4);
     }
 
-    public static void printTotalSalary() {
+    private void printTotalSalary() {
         int totalSalary = 0;
-        for (Employee employee : employeeArrayList) {
+        for (Employee employee : employeeList.getEmployeeArrayList()) {
             totalSalary += employee.getSalary();
         }
         System.out.println(totalSalary);
     }
 
-    private static void printAllEmployees() {
-        for (Employee employee : employeeArrayList) {
+    private void printAllEmployees() {
+        for (Employee employee : employeeList.getEmployeeArrayList()) {
             System.out.println(employee);
         }
     }
 
-    private static Employee createNewEmployee(){
-        return new Employee(EmployeeReader.readFirstName(), EmployeeReader.readLastName(), EmployeeReader.readSalary());
+    private void createNewEmployee() {
+        Employee employee = new Employee(employeeReader.readFirstName(), employeeReader.readLastName(), employeeReader.readSalary());
+        employeeList.addEmployeeToList(employee);
     }
 }
