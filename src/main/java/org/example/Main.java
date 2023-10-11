@@ -1,20 +1,26 @@
 package org.example;
 
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("First name");
-        String firstName = scanner.nextLine();
-        System.out.println("Last name");
-        String lastName = scanner.nextLine();
-        System.out.println("Salary");
-        int salary = scanner.nextInt();
+        EmployeeList employeeList = new EmployeeList();
 
-        Employee employee = new Employee(firstName, lastName, salary);
+        Employee maja = new Employee(EmployeeReader.readFirstName(), EmployeeReader.readLastName(), EmployeeReader.readSalary());
+        employeeList.addEmployeeToList(maja);
+        Employee kinga = new Employee(EmployeeReader.readFirstName(), EmployeeReader.readLastName(), EmployeeReader.readSalary());
+        employeeList.addEmployeeToList(kinga);
+        Employee michal = new Employee(EmployeeReader.readFirstName(), EmployeeReader.readLastName(), EmployeeReader.readSalary());
+        employeeList.addEmployeeToList(michal);
+        Employee kamil = new Employee(EmployeeReader.readFirstName(), EmployeeReader.readLastName(), EmployeeReader.readSalary());
+        employeeList.addEmployeeToList(kamil);
+        Employee bartek = new Employee(EmployeeReader.readFirstName(), EmployeeReader.readLastName(), EmployeeReader.readSalary());
+        employeeList.addEmployeeToList(bartek);
+
+        Actions.performAction();
 
 
     }
+
+
 }
