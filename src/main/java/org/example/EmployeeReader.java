@@ -4,15 +4,16 @@ import java.util.Scanner;
 
 public class EmployeeReader {
 
+
     public String readFirstName() {
         Scanner scanner = new Scanner(System.in);
         String firstName = "";
 
         while (firstName.isEmpty()) {
-            System.out.print("Enter the FIRST NAME of the new employee: ");
+            printHint("FIRST NAME");
             firstName = scanner.nextLine().trim();
             if (firstName.isEmpty()) {
-                System.out.println("FIRST NAME cannot be empty. Please try again.");
+                printWarningEmpty("FIRST NAME");
             }
         }
         return firstName;
@@ -23,13 +24,21 @@ public class EmployeeReader {
         String lastName = "";
 
         while (lastName.isEmpty()) {
-            System.out.print("Enter the LAST NAME of the new employee: ");
+            printHint("LAST NAME");
             lastName = scanner.nextLine().trim();
             if (lastName.isEmpty()) {
-                System.out.println("LAST NAME cannot be empty. Please try again.");
+                printWarningEmpty("LAST NAME");
             }
         }
         return lastName;
+    }
+    private static void printHint(String inputName) {
+        System.out.print("Enter the " + inputName + " of the new employee: ");
+    }
+
+    private static void printWarningEmpty(String inputName) {
+        System.out.println(inputName + " cannot be empty. Please try again.");
+
     }
 
     public int readSalary() {
@@ -37,20 +46,25 @@ public class EmployeeReader {
         int salary = -1;
 
         while (salary < 0) {
-            System.out.print("Enter the SALARY of the new employee: ");
-
+            printHint("SALARY");
             if (scanner.hasNextInt()) {
                 salary = scanner.nextInt();
 
                 if (salary < 0) {
-                    System.out.println("SALARY cannot be below 0. Please try again.");
-                }
+                    printWarningBelowZero("SALARY");                }
             } else {
-                System.out.println("Invalid input. Please enter a valid number.");
+                printWarningInvalidInput();
                 scanner.next();
             }
         }
         return salary;
     }
+    private static void printWarningBelowZero(String inputName) {
+        System.out.println(inputName + " cannot be below 0. Please try again.");
 
+    }
+    private static void printWarningInvalidInput() {
+        System.out.println("Invalid input. Please enter a valid number.");
+
+    }
 }
