@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 
 public class EmployeeList {
-    public ArrayList<Employee> getEmployeeArrayList() {
-        return employeeArrayList;
+    public ArrayList<Employee> getEmployees() {
+        return employees;
     }
 
-    private ArrayList<Employee> employeeArrayList = new ArrayList<>();
+    private ArrayList<Employee> employees = new ArrayList<>();
 
     public void addEmployeeToList(Employee employee){
-        employeeArrayList.add(employee);
+        employees.add(employee);
     }
 
 

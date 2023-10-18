@@ -41,25 +41,24 @@ public class EmployeeManager {
                 default -> System.out.println("Invalid choice. Please try again.");
 
             }
-        } while (action != 4);
+        } while (true);
     }
 
     private void printTotalSalary() {
         int totalSalary = 0;
-        for (Employee employee : employeeList.getEmployeeArrayList()) {
+        for (Employee employee : employeeList.getEmployees()) {
             totalSalary += employee.getSalary();
         }
         System.out.println(totalSalary);
     }
 
     private void printAllEmployees() {
-        for (Employee employee : employeeList.getEmployeeArrayList()) {
+        for (Employee employee : employeeList.getEmployees()) {
             System.out.println(employee);
         }
     }
 
     private void createNewEmployee() {
-        Employee employee = new Employee(employeeReader.readFirstName(), employeeReader.readLastName(), employeeReader.readSalary());
-        employeeList.addEmployeeToList(employee);
+        employeeList.addEmployeeToList(new Employee(employeeReader.readFirstName(), employeeReader.readLastName(), employeeReader.readSalary()));
     }
 }
